@@ -49,6 +49,19 @@ add2gpu.out: src/add2gpu.cu
 	chmod +x build/add2gpu.out
 	./build/add2gpu.out	
 
+
+# arithmetic1cpu
+arithmetic1cpu.out: src/arithmetic1cpu.cu
+	$(CC) -arch=$(arch) -O3 src/arithmetic1cpu.cu -o build/arithmetic1cpu.out
+	chmod +x build/arithmetic1cpu.out
+	./build/arithmetic1cpu.out	
+
+# arithmetic2gpu
+arithmetic2gpu.out: src/arithmetic2gpu.cu
+	$(CC) -arch=$(arch) -O3 src/arithmetic2gpu.cu -o build/arithmetic2gpu.out
+	chmod +x build/arithmetic2gpu.out
+	./build/arithmetic2gpu.out 10000
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
