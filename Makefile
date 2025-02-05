@@ -21,6 +21,34 @@ add3if.out: src/add3if.cu
 	chmod +x build/add3if.out
 	./build/add3if.out
 
+
+# check2kernel
+check2kernel.out: src/check2kernel.cu
+	$(CC) -arch=$(arch) src/check2kernel.cu -o build/check2kernel.out
+	chmod +x build/check2kernel.out
+	./build/check2kernel.out	
+
+
+# add1cpu, add event time, -O3 is optimization
+add1cpu.out: src/add1cpu.cu
+	$(CC) -arch=$(arch) -O3 src/add1cpu.cu -o build/add1cpu.out
+	chmod +x build/add1cpu.out
+	./build/add1cpu.out	
+
+	$(CC) -arch=$(arch) -O3 -DUSE_DP src/add1cpu.cu -o build/add1cpu.out
+	chmod +x build/add1cpu.out
+	./build/add1cpu.out
+
+# add2gpu, add event time, -O3 is optimization
+add2gpu.out: src/add2gpu.cu
+	$(CC) -arch=$(arch) -O3 src/add2gpu.cu -o build/add2gpu.out
+	chmod +x build/add2gpu.out
+	./build/add2gpu.out	
+
+	$(CC) -arch=$(arch) -O3 -DUSE_DP src/add2gpu.cu -o build/add2gpu.out
+	chmod +x build/add2gpu.out
+	./build/add2gpu.out	
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
