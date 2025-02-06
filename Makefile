@@ -78,7 +78,13 @@ query.out: src/query.cu
 matrix.out: src/matrix.cu
 	$(CC) -arch=$(arch) -O3 src/matrix.cu -o build/matrix.out
 	chmod +x build/matrix.out
-	./build/matrix.out 10000
+	./build/matrix.out 10
+
+# reduce1cpu
+reduce1cpu.out: src/reduce1cpu.cu
+	$(CC) -arch=$(arch) -O3 src/reduce1cpu.cu -o build/reduce1cpu.out
+	chmod +x build/reduce1cpu.out
+	./build/reduce1cpu.out
 
 # clean executable files
 clean:

@@ -17,8 +17,6 @@ __global__ void transpose2(const real *d_A, real *d_B, const int N);
 __global__ void transpose3(const real *d_A, real *d_B, const int N);
 void print_matrix(const int N, const real *A);
 
-
-
 int main(int argc, char **argv){
     if (argc != 2){
         printf("usage: %s N\n", argv[0]);
@@ -63,7 +61,6 @@ int main(int argc, char **argv){
     CHECK(cudaFree(d_B));
     return 0;
 }
-
 
 void timing(const real *d_A, real *d_B, const int N, const int task){
     const int grid_size_x = (N + TILE_DIM - 1) / TILE_DIM;
