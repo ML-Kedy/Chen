@@ -62,6 +62,24 @@ arithmetic2gpu.out: src/arithmetic2gpu.cu
 	chmod +x build/arithmetic2gpu.out
 	./build/arithmetic2gpu.out 10000
 
+# static
+static.out: src/static.cu
+	$(CC) -arch=$(arch) -O3 src/static.cu -o build/static.out
+	chmod +x build/static.out
+	./build/static.out
+
+# query
+query.out: src/query.cu
+	$(CC) -arch=$(arch) -O3 src/query.cu -o build/query.out
+	chmod +x build/query.out
+	./build/query.out
+
+# matrix
+matrix.out: src/matrix.cu
+	$(CC) -arch=$(arch) -O3 src/matrix.cu -o build/matrix.out
+	chmod +x build/matrix.out
+	./build/matrix.out 10000
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
