@@ -86,17 +86,30 @@ reduce1cpu.out: src/reduce1cpu.cu
 	chmod +x build/reduce1cpu.out
 	./build/reduce1cpu.out
 
-# reduce1cpu
+# reduce2gpu
 reduce2gpu.out: src/reduce2gpu.cu
 	$(CC) -arch=$(arch) -O3 src/reduce2gpu.cu -o build/reduce2gpu.out
 	chmod +x build/reduce2gpu.out
 	./build/reduce2gpu.out
 
-# reduce1cpu
+# reduce3gpu
 reduce3gpu.out: src/reduce3gpu.cu
 	$(CC) -arch=$(arch) -O3 src/reduce3gpu.cu -o build/reduce3gpu.out
 	chmod +x build/reduce3gpu.out
 	./build/reduce3gpu.out
+
+# neighbor1cpu
+neighbor1cpu.out: src/neighbor1cpu.cu
+	$(CC) -arch=$(arch) -O3 src/neighbor1cpu.cu -o build/neighbor1cpu.out
+	chmod +x build/neighbor1cpu.out
+	./build/neighbor1cpu.out
+
+# neighbor2gpu
+neighbor2gpu.out: src/neighbor2gpu.cu
+	$(CC) -arch=$(arch) -O3 src/neighbor2gpu.cu -o build/neighbor2gpu.out
+	chmod +x build/neighbor2gpu.out
+	./build/neighbor2gpu.out
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
