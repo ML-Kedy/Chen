@@ -98,6 +98,12 @@ reduce3gpu.out: src/reduce3gpu.cu
 	chmod +x build/reduce3gpu.out
 	./build/reduce3gpu.out
 
+# reduce4gpu
+reduce4gpu.out: src/reduce4gpu.cu
+	$(CC) -arch=$(arch) -O3 src/reduce4gpu.cu -o build/reduce4gpu.out
+	chmod +x build/reduce4gpu.out
+	./build/reduce4gpu.out
+
 # neighbor1cpu
 neighbor1cpu.out: src/neighbor1cpu.cu
 	$(CC) -arch=$(arch) -O3 src/neighbor1cpu.cu -o build/neighbor1cpu.out
