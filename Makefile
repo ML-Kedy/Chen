@@ -78,7 +78,7 @@ query.out: src/query.cu
 matrix.out: src/matrix.cu
 	$(CC) -arch=$(arch) -O3 src/matrix.cu -o build/matrix.out
 	chmod +x build/matrix.out
-	./build/matrix.out 10
+	./build/matrix.out 10000
 
 # reduce1cpu
 reduce1cpu.out: src/reduce1cpu.cu
@@ -86,6 +86,17 @@ reduce1cpu.out: src/reduce1cpu.cu
 	chmod +x build/reduce1cpu.out
 	./build/reduce1cpu.out
 
+# reduce1cpu
+reduce2gpu.out: src/reduce2gpu.cu
+	$(CC) -arch=$(arch) -O3 src/reduce2gpu.cu -o build/reduce2gpu.out
+	chmod +x build/reduce2gpu.out
+	./build/reduce2gpu.out
+
+# reduce1cpu
+reduce3gpu.out: src/reduce3gpu.cu
+	$(CC) -arch=$(arch) -O3 src/reduce3gpu.cu -o build/reduce3gpu.out
+	chmod +x build/reduce3gpu.out
+	./build/reduce3gpu.out
 # clean executable files
 clean:
 	@echo "Removing object files ..."
