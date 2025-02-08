@@ -116,6 +116,13 @@ neighbor2gpu.out: src/neighbor2gpu.cu
 	chmod +x build/neighbor2gpu.out
 	./build/neighbor2gpu.out
 
+# reduce5gpu
+reduce5gpu.out: src/reduce5gpu.cu
+	$(CC) -arch=$(arch) -O3 src/reduce5gpu.cu -o build/reduce5gpu.out
+	chmod +x build/reduce5gpu.out
+	./build/reduce5gpu.out
+
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
