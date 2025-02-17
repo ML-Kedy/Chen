@@ -123,6 +123,25 @@ reduce5gpu.out: src/reduce5gpu.cu
 	./build/reduce5gpu.out
 
 
+# host-kernel
+host-kernel.out: src/host-kernel.cu
+	$(CC) -arch=$(arch) -O3 src/host-kernel.cu -o build/host-kernel.out
+	chmod +x build/host-kernel.out
+	./build/host-kernel.out
+
+
+# kernel-kernel
+kernel-kernel.out: src/kernel-kernel.cu
+	$(CC) -arch=$(arch) -O3 src/kernel-kernel.cu -o build/kernel-kernel.out
+	chmod +x build/kernel-kernel.out
+	./build/kernel-kernel.out
+
+# kernel-transfer
+kernel-transfer.out: src/kernel-transfer.cu
+	$(CC) -arch=$(arch) -O3 src/kernel-transfer.cu -o build/kernel-transfer.out
+	chmod +x build/kernel-transfer.out
+	./build/kernel-transfer.out
+
 # clean executable files
 clean:
 	@echo "Removing object files ..."
